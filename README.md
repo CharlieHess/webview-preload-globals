@@ -1,7 +1,6 @@
 # webview-preload-globals
-This is a minimal repro for an issue where, after a series of navigations, globals injected via preload script go missing.
+This is a minimal repro for https://github.com/electron/electron/issues/4025. After a series of navigations in a `webview` with a `preload` script, we attempt to load native modules twice and get the following about 50% of the time:
 
-It seems related to native modules being loaded twice. You'll see the following in the console about 50% of the time:
 ```
 Unable to load preload script: /Users/charlie/webview-preload-globals/src/preload.js
 Error: Module did not self-register.
@@ -17,11 +16,11 @@ Error: Module did not self-register.
     at Object.<anonymous> (/Users/charlie/webview-preload-globals/node_modules/runas/lib/runas.js:47:4)
 ```
 
-In the `webview`'s devTools, check `window.injectedGlobal` and you'll see that it's no longer there.
+In the `webview`'s devTools, check `window.injectedGlobal` and you'll see that it's no longer there. 
 
-## To Run
+## To Reproduce
 ```
 npm i
 electron-forge start
 ```
-Then sign into one of your Slack teams.
+Then sign into one of your Slack teams. It might take a couple attempts.
