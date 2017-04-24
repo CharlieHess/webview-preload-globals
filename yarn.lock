@@ -1515,7 +1515,7 @@ electron-download@^3.0.1:
     semver "^5.3.0"
     sumchecker "^1.2.0"
 
-electron-prebuilt-compile@1.6.2:
+electron-prebuilt-compile@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/electron-prebuilt-compile/-/electron-prebuilt-compile-1.6.2.tgz#22b8ab92718e24dd9d1c9cb21d371c727b172a9d"
   dependencies:
