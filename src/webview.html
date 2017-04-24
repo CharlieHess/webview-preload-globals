@@ -10,10 +10,23 @@
 </body>
 
 <script>
-  const webview = document.querySelector('webview')
+  const webview = document.querySelector('webview');
+
   webview.addEventListener('dom-ready', () => {
     webview.openDevTools()
-  })
+  });
+
+  webview.addEventListener('load-commit', (e) => {
+    if (e.isMainFrame) console.log(`${e.url} load-commit`);
+  });
+
+  webview.addEventListener('did-get-redirect-request', (e) => {
+    if (e.isMainFrame) console.log(`redirect-request to ${e.newURL}`);
+  });
+
+  webview.addEventListener('console-message', (e) => {
+    console.log(e.message);
+  });
 </script>
 
 </html>

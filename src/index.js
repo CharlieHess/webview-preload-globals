@@ -9,6 +9,7 @@ const createWindow = () => {
   });
 
   mainWindow.loadURL(`file://${__dirname}/webview.html`);
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
@@ -17,7 +18,6 @@ const createWindow = () => {
 
 app.on('ready', createWindow);
 
-// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   app.quit();
 });

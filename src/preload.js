@@ -1,3 +1,5 @@
 const runas = require('runas');
 
-window.winssb = { runas };
+window.injectedGlobal = {
+  runas
+};
