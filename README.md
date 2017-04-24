@@ -3,7 +3,7 @@ This is a minimal repro for an issue where, after a series of navigations, globa
 
 It seems related to native modules being loaded twice. You'll see the following in the console about 50% of the time:
 ```
-Unable to load preload script: /Users/charlie/webview-redirects/src/preload.js
+Unable to load preload script: /Users/charlie/webview-preload-globals/src/preload.js
 Error: Module did not self-register.
     at process.module.(anonymous function) [as dlopen] (ELECTRON_ASAR.js:173:20)
     at Object.Module._extensions..node (module.js:598:18)
@@ -13,9 +13,11 @@ Error: Module did not self-register.
     at Function.Module._load (module.js:439:3)
     at Module.require (module.js:498:17)
     at require (internal/module.js:20:19)
-    at Object.<anonymous> (/Users/charlie/webview-redirects/node_modules/runas/lib/runas.js:4:11)
-    at Object.<anonymous> (/Users/charlie/webview-redirects/node_modules/runas/lib/runas.js:47:4)
+    at Object.<anonymous> (/Users/charlie/webview-preload-globals/node_modules/runas/lib/runas.js:4:11)
+    at Object.<anonymous> (/Users/charlie/webview-preload-globals/node_modules/runas/lib/runas.js:47:4)
 ```
+
+In the `webview`'s devTools, check `window.injectedGlobal` and you'll see that it's no longer there.
 
 ## To Run
 ```
