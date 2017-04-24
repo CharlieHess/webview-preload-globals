@@ -1,0 +1,19 @@
+<html>
+
+<body>
+  <webview
+    id="webview"
+    preload="preload.js"
+    src="https://slack.com/signin"
+    style="width: 100%; height: 100%"
+  />
+</body>
+
+<script>
+  const webview = document.querySelector('webview')
+  webview.addEventListener('dom-ready', () => {
+    webview.openDevTools()
+  })
+</script>
+
+</html>
