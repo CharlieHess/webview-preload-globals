@@ -1,7 +1,8 @@
-const runas = require('runas');
+const { ipcRenderer } = require('electron');
+const { ContextMenuListener, SpellCheckHandler, setGlobalLogger } = require('electron-spellchecker');
+
+const spellchecker = new SpellCheckHandler();
 
 window.injectedGlobal = {
-  runas
+  spellchecker
 };
-
-document.addEventListener('DOMContentLoaded', () => console.log(process.pid));
