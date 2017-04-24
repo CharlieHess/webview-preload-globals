@@ -1,8 +1,7 @@
-const { ipcRenderer } = require('electron');
-const { ContextMenuListener, SpellCheckHandler, setGlobalLogger } = require('electron-spellchecker');
-
+const SpellCheckHandler = require('electron-spellchecker').SpellCheckHandler;
 const spellchecker = new SpellCheckHandler();
 
 window.injectedGlobal = {
+  pid: process.pid,
   spellchecker
 };
