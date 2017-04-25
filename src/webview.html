@@ -15,7 +15,7 @@
 
   webview.addEventListener('dom-ready', () => {
     webview.openDevTools();
-    webview.executeJavaScript('window.injectedGlobal.spellchecker.attachToInput()');
+    webview.executeJavaScript('window.setupGlobal()');
   });
 
   webview.addEventListener('load-commit', (e) => {
