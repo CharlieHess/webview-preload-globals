@@ -1,7 +1,10 @@
-const runas = require('runas');
+window.setupGlobal = () => {
+  const SpellCheckHandler = require('electron-spellchecker').SpellCheckHandler;
+  const spellchecker = new SpellCheckHandler();
+  spellchecker.attachToInput();
 
-window.injectedGlobal = {
-  runas
+  window.injectedGlobal = {
+    pid: process.pid,
+    spellchecker
+  };
 };
-
-document.addEventListener('DOMContentLoaded', () => console.log(process.pid));

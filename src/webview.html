@@ -13,7 +13,8 @@
   const webview = document.querySelector('webview');
 
   webview.addEventListener('dom-ready', () => {
-    webview.openDevTools()
+    webview.openDevTools();
+    webview.executeJavaScript('window.setupGlobal()');
   });
 
   webview.addEventListener('load-commit', (e) => {
